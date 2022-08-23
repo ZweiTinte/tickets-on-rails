@@ -1,0 +1,14 @@
+<h1><%= @project.name %></h1>
+<p><%= @project.description %></p>
+<%= link_to "Edit Project", edit_project_path %>
+
+<h2>Lanes</h2>
+<ul>
+<%= render @project.lanes %>
+</ul>
+
+<h3>Add a lane:</h3>
+<%= render 'lanes/form' %>
+
+<h3>Add a ticket:</h3>
+<%= render 'tickets/form' %>

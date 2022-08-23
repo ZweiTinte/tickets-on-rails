@@ -1,0 +1,20 @@
+<%= form_with model: @ticket, url: tickets_new_path, as: "new_ticket" do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :ref_models, "Lane:" %><br>
+    <%= form.select :ref_models, options_from_collection_for_select(@project.lanes.all, :id, :name) %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Ticket" %>
+  </div>
+<% end %>

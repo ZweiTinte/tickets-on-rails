@@ -11,6 +11,10 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
+  def show
+    @project = Project.find(params[:id])
+  end
+
   def create
     @project = Project.new(project_params)
 
@@ -34,6 +38,11 @@ class ProjectsController < ApplicationController
   private
     def project_params
       params.require(:project).permit(:name, :description)
+    end
+
+  private
+    def ticket_params
+      params.require(:ticket).permit(:name, :description)
     end
 end
 
